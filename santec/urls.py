@@ -8,5 +8,5 @@ urlpatterns = [
 	url(r'^appointment/', views.appointment, name="appointment"),
 
 	url(r'^ajouter_dossier', views.ajouter_dossier, name="ajouter_dossier"),
-	#url(r'^ajouter_dossier', views.ajouter_dossier, name="ajouter_dossier"),
+	url(r'^liste_dossiers', views.liste_dossiers, name="liste_dossiers"),
 ]
