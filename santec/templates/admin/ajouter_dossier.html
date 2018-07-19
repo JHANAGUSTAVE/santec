@@ -1,0 +1,106 @@
+{% extends 'admin/layout.html' %}
+
+{% block 'content' %}
+
+<div id="qbootstrap-contact">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 col-md-offset-">
+					<form action="ajouter_dossier" class="appointment-wrap animate-box">
+
+						<div class="card card-default">
+				          <div class="card-header">
+				            <h3 class="card-title">Informations Personnelles</h3>
+
+				            <div class="card-tools">
+				              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+				            </div>
+				          </div>
+				          <!-- /.card-header -->
+				          <div class="card-body">
+						
+						<div class="row">
+							<div class="col-md-6">
+								<label for="fname">Prenom</label>
+								<input type="text" id="fname" class="form-control" placeholder="entrez votre prenom">
+							</div>
+							<div class="col-md-6">
+								<label for="lname">Nom</label>
+								<input type="text" id="lname" class="form-control" placeholder="entrez votre nom">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="fname">Email</label>
+								<input type="text" id="fname" class="form-control" placeholder="entrez votre prenom">
+							</div>
+							<div class="col-md-6">
+								<label for="lname">Tel</label>
+								<input type="text" id="lname" class="form-control" placeholder="entrez votre nom">
+							</div>
+						</div>
+
+						</div>
+			          <!-- /.card-body -->
+			        </div>
+
+						<div class="card card-default">
+				          <div class="card-header">
+				            <h3 class="card-title">Adresse</h3>
+
+				            <div class="card-tools">
+				              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+				            </div>
+				          </div>
+				          <!-- /.card-header -->
+				          <div class="card-body">
+
+							<div class="row">
+								<div class="col-md-6">
+									<label for="fname">Département</label>
+									<select name="departement" class="form-control select2" style="width: 100%;">
+					                    <option value="1" selected="selected">Ouest</option>
+					                  </select>
+									
+								</div>
+								<div class="col-md-6">
+									<label for="lname">Ville</label>
+									<select name="ville" class="form-control select2" style="width: 100%;">
+					                    <option value="1" selected="selected">Port-au-Prince</option>
+					                    <option value="2">Delmas</option>
+					                  </select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<label for="fname">Adresse</label>
+									<input type="text" id="fname" class="form-control" placeholder="entrez votre prenom">
+								</div>
+							</div>
+
+						 </div>
+			          <!-- /.card-body -->
+			        </div>
+
+						
+
+					<div class="row">
+							<div class="col-md-6">
+						<div class="form-group">
+							<input type="submit" value="Send Message" class="btn btn-primary">
+						</div>
+						</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}
