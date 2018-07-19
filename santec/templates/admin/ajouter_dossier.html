@@ -19,7 +19,7 @@
 
                 {% endif %}
 
-                <form action="/ajouter_dossier/" method="post" class="appointment-wrap animate-box">
+                <form action="{{form_action}}" method="post" class="appointment-wrap animate-box">
 
                     {% csrf_token %}
 
@@ -39,12 +39,12 @@
                                 <div class="col-md-6">
                                     <label for="fname">Prénom</label>
                                     <input type="text" id="fname" name="prenom" class="form-control"
-                                           placeholder="entrez votre prenom">
+                                           placeholder="entrez votre prenom" value="{{dossier.id_patient.id_personne.prenom}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="lname">Nom</label>
                                     <input type="text" id="lname" name="nom" class="form-control"
-                                           placeholder="entrez votre nom">
+                                           placeholder="entrez votre nom"  value="{{dossier.id_patient.id_personne.nom}}">
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
 
                                 <div class="col-md-6">
                                     <label for="age">Age</label>
-                                    <input type="number" id="age" name="age" class="form-control" placeholder="">
+                                    <input type="number" id="age" name="age" class="form-control" placeholder=""  value="{{dossier.id_patient.age}}">
                                 </div>
 
                             </div>
@@ -101,13 +101,13 @@
                                 <div class="col-md-6">
                                     <label for="adresse">Adresse</label>
                                     <input type="text" id="adresse" name="adresse" class="form-control"
-                                           placeholder="">
+                                           placeholder=""  value="{{dossier.id_patient.id_personne.id_adresse.rue}}">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="tel">Tel</label>
                                     <input type="text" id="tel" name="tel" class="form-control"
-                                           placeholder="">
+                                           placeholder=""  value="{{dossier.id_patient.id_personne.telephone}}">
                                 </div>
                             </div>
 
@@ -131,12 +131,12 @@
                                 <div class="col-md-6">
                                     <label for="profession">Profession</label>
                                     <input type="text" id="profession" name="profession" class="form-control"
-                                           placeholder="">
+                                           placeholder=""  value="{{dossier.id_patient.profession}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="religion">Religion</label>
                                     <input type="text" id="religion" name="religion" class="form-control"
-                                           placeholder="">
+                                           placeholder="" value="{{dossier.id_patient.religion}}">
                                 </div>
                             </div>
 
@@ -144,12 +144,12 @@
                                 <div class="col-md-6">
                                     <label for="gsanguin">Groupe sangui</label>
                                     <input type="text" id="gsanguin" name="gsanguin" class="form-control"
-                                           placeholder="">
+                                           placeholder=""  value="{{dossier.id_patient.groupe_sanguin}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="allergie">Allergie connue</label>
                                     <input type="text" id="allergie" name="allergie" class="form-control"
-                                           placeholder="">
+                                           placeholder="" value="{{dossier.id_patient.allergie_connu}}">
                                 </div>
                             </div>
 
@@ -172,7 +172,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <textarea type="text" id="diagnostic" name="diagnostic" class="form-control"
-                                              placeholder="Enter..."></textarea>
+                                              placeholder="Enter...">{{dossier.diagnostique}}</textarea>
                                 </div>
                             </div>
 
