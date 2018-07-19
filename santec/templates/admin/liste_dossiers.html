@@ -8,15 +8,42 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-">
 
-                <table>
-                    <tbody>
-                        {% for dossier in dossiers %}
+                <div class="card card-default">
+
+                    <div class="card-body">
+
+                        <table class="table table-bordered  table-striped grid_data">
+                            <thead>
                             <tr>
-                                <td>{{dossier.diagnostique}}</td>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Sexe</th>
+                                <th>Age</th>
+                                <th>Tel</th>
+                                <th>Actions</th>
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                            {% for dossier in dossiers %}
+                            <tr>
+                                <td>{{dossier.id_patient.id_personne.nom}}</td>
+                                <td>{{dossier.id_patient.id_personne.prenom}}</td>
+                                <td>{{dossier.id_patient.sexe}}</td>
+                                <td>{{dossier.id_patient.age}}</td>
+                                <td>{{dossier.id_patient.id_personne.telephone}}</td>
+                                <td>
+                                    <a href="/editer_dossier/{{dossier.pk}}" class="btn btn-default">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
 
             </div>
         </div>

@@ -111,6 +111,5 @@ def liste_dossiers(request):
 	if not request.user.is_authenticated():
 		return HttpResponseRedirect("/login/")
 
-	data = {'heading': 'Liste des dossiers'}
-	dossiers = Dossier.objects.all()
+	data = {'heading': 'Liste des dossiers', "dossiers": Dossier.objects.all()}
 	return render(request, "admin/liste_dossiers.html", data)
