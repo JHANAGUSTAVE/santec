@@ -3,104 +3,200 @@
 {% block 'content' %}
 
 <div id="qbootstrap-contact">
-		<div class="container">
+    <div class="container">
 
-			<div class="row">
-				<div class="col-md-12 col-md-offset-">
-					<form action="ajouter_dossier" class="appointment-wrap animate-box">
 
-						<div class="card card-default">
-				          <div class="card-header">
-				            <h3 class="card-title">Informations Personnelles</h3>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-">
 
-				            <div class="card-tools">
-				              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-				            </div>
-				          </div>
-				          <!-- /.card-header -->
-				          <div class="card-body">
-						
-						<div class="row">
-							<div class="col-md-6">
-								<label for="fname">Prenom</label>
-								<input type="text" id="fname" class="form-control" placeholder="entrez votre prenom">
-							</div>
-							<div class="col-md-6">
-								<label for="lname">Nom</label>
-								<input type="text" id="lname" class="form-control" placeholder="entrez votre nom">
-							</div>
-						</div>
+                {% if error %}
 
-						<div class="row">
-							<div class="col-md-6">
-								<label for="fname">Email</label>
-								<input type="text" id="fname" class="form-control" placeholder="entrez votre prenom">
-							</div>
-							<div class="col-md-6">
-								<label for="lname">Tel</label>
-								<input type="text" id="lname" class="form-control" placeholder="entrez votre nom">
-							</div>
-						</div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset- ">
+                        <div class="alert-danger">
+                            {{error}}
+                        </div>
+                    </div>
+                </div>
 
-						</div>
-			          <!-- /.card-body -->
-			        </div>
+                {% endif %}
 
-						<div class="card card-default">
-				          <div class="card-header">
-				            <h3 class="card-title">Adresse</h3>
+                <form action="{{form_action}}" method="post" class="appointment-wrap animate-box">
 
-				            <div class="card-tools">
-				              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-				            </div>
-				          </div>
-				          <!-- /.card-header -->
-				          <div class="card-body">
+                    {% csrf_token %}
 
-							<div class="row">
-								<div class="col-md-6">
-									<label for="fname">Département</label>
-									<select name="departement" class="form-control select2" style="width: 100%;">
-					                    <option value="1" selected="selected">Ouest</option>
-					                  </select>
-									
-								</div>
-								<div class="col-md-6">
-									<label for="lname">Ville</label>
-									<select name="ville" class="form-control select2" style="width: 100%;">
-					                    <option value="1" selected="selected">Port-au-Prince</option>
-					                    <option value="2">Delmas</option>
-					                  </select>
-								</div>
-							</div>
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Informations Personnelles</h3>
 
-							<div class="row">
-								<div class="col-md-6">
-									<label for="fname">Adresse</label>
-									<input type="text" id="fname" class="form-control" placeholder="entrez votre prenom">
-								</div>
-							</div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
 
-						 </div>
-			          <!-- /.card-body -->
-			        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="fname">Prénom</label>
+                                    <input type="text" id="fname" name="prenom" class="form-control"
+                                           placeholder="entrez votre prenom" value="{{dossier.id_patient.id_personne.prenom}}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lname">Nom</label>
+                                    <input type="text" id="lname" name="nom" class="form-control"
+                                           placeholder="entrez votre nom"  value="{{dossier.id_patient.id_personne.nom}}">
+                                </div>
+                            </div>
 
-						
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="fname">Sexe</label>
+                                    <select name="sexe" class="form-control select2" style="width: 100%;">
+                                        <option value="F" selected="selected">Femme</option>
+                                        <option value="M">Homme</option>
+                                    </select>
+                                </div>
 
-					<div class="row">
-							<div class="col-md-6">
-						<div class="form-group">
-							<input type="submit" value="Send Message" class="btn btn-primary">
-						</div>
-						</div>
-						</div>
+                                <div class="col-md-6">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" class="form-control" placeholder=""  value="{{dossier.id_patient.age}}">
+                                </div>
 
-					</form>
-				</div>
-			</div>
+                            </div>
 
-		</div>
-	</div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Adresse</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="fname">Département</label>
+                                    <select name="departement" class="form-control select2" style="width: 100%;">
+                                        <option value="Ouest" selected="selected">Ouest</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lname">Ville</label>
+                                    <select name="ville" class="form-control select2" style="width: 100%;">
+                                        <option value="Port-au-Prince" selected="selected">Port-au-Prince</option>
+                                        <option value="Delmas">Delmas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="adresse">Adresse</label>
+                                    <input type="text" id="adresse" name="adresse" class="form-control"
+                                           placeholder=""  value="{{dossier.id_patient.id_personne.id_adresse.rue}}">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="tel">Tel</label>
+                                    <input type="text" id="tel" name="tel" class="form-control"
+                                           placeholder=""  value="{{dossier.id_patient.id_personne.telephone}}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Autres</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="profession">Profession</label>
+                                    <input type="text" id="profession" name="profession" class="form-control"
+                                           placeholder=""  value="{{dossier.id_patient.profession}}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="religion">Religion</label>
+                                    <input type="text" id="religion" name="religion" class="form-control"
+                                           placeholder="" value="{{dossier.id_patient.religion}}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="gsanguin">Groupe sangui</label>
+                                    <input type="text" id="gsanguin" name="gsanguin" class="form-control"
+                                           placeholder=""  value="{{dossier.id_patient.groupe_sanguin}}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="allergie">Allergie connue</label>
+                                    <input type="text" id="allergie" name="allergie" class="form-control"
+                                           placeholder="" value="{{dossier.id_patient.allergie_connu}}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Diagnostique</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <textarea type="text" id="diagnostic" name="diagnostic" class="form-control"
+                                              placeholder="Enter...">{{dossier.diagnostique}}</textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="submit" value="Soumettre" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 
 {% endblock %}
