@@ -11,10 +11,6 @@ def appointment(request):
 	return render(request, "appointment.html", {'nom': test})
 
 
-def grand_public(request):
-	return render(request, "admin/layout.html")
-
-
 # Create your views here.
 def index(request):
 	if not request.user.is_authenticated():

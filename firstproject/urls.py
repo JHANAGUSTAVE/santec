@@ -19,6 +19,6 @@ from santec import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^public/', views.index),
-    url(r'^', include('santec.urls')),
+    url(r'^', include('publicapp.urls')),
+    url(r'^manager', include('santec.urls')),
 ]
